@@ -61,7 +61,31 @@ Autoconfiguration - Spring Boot can make reasonable guesses of what components
     Tells JUnit to bootstrap the test with Spring Boot capabilities. Something
     similar to calling run with a context in main()
 
+@Controller
+    Found at class level
+    Class that handles requests and provides responses to those requests.
+        In the case of a browser-facing application, a controller responds by
+        optionally populating model data and passing the request on to a view
+        to produce HTML that’s returned to the browser
+    Spring component scanning automatically discovers the classes annotated
+        with @Controller, creates an instance of it and provides it as a bean in
+        the Spring application context. In fact other annotation would work the
+        same as this one (@Component, @Service, @Repository), but this one is
+        more descriptive of the role it has in application
+
+@GetMapping("/")
+    Found at method level (method inside a class annotated with @Controller)
+    Mapps an URL to a handler. The string returned is the name of a view (in
+        this case made with Thymeleaf). The name of the template is derived
+        from this string with the prefix of '/templates/' and the suffix of
+        '.html' 
+
+@WebMvcTest
+    Found at class level
+    This is a special test annotation provided by Spring Boot that arranges for
+        the test to run in the context of a Spring MVC application.
+
 --- ???
 @Component
-@Controller
 @Service
+@Repository
