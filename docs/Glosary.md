@@ -80,10 +80,44 @@ Autoconfiguration - Spring Boot can make reasonable guesses of what components
         from this string with the prefix of '/templates/' and the suffix of
         '.html' 
 
+@GetMapping
+    NOTICE THAT IT HAS NO PATH AND THERE IS A VERSION WITH PATH
+    Found at method level (in classes annotated with @RequestMapping)
+    Specifies that this is the method that should be called when the path
+        specified by @RequestMapping is hit with an http GET. 
+
+@RequestMapping(method=RequestMethod.GET)
+@RequestMapping("/somepath")
+    Found at class or method level
+    When applied at the class level, specifies the kind of requests that this
+        controller handles
+
+
+
 @WebMvcTest
     Found at class level
     This is a special test annotation provided by Spring Boot that arranges for
         the test to run in the context of a Spring MVC application.
+
+Table 2.1: Spring MVC request-mapping annotations
+
++----------------------------------------------------+
+| Spring MVC request-mapping list of annotations     |
++-----------------+----------------------------------+
+| Annotation      | Description                      |
++-----------------+----------------------------------+
+| @RequestMapping | General-purpose request handling |
++-----------------+----------------------------------+
+| @GetMapping     | Handles HTTP GET requests        |
++-----------------+----------------------------------+
+| @PostMapping    | Handles HTTP POST requests       |
++-----------------+----------------------------------+
+| @PutMapping     | Handles HTTP PUT requests        |
++-----------------+----------------------------------+
+| @DeleteMapping  | Handles HTTP DELETE requests     |
++-----------------+----------------------------------+
+| @PatchMapping   | Handles HTTP PATCH requests      |
++-----------------+----------------------------------+
 
 --- ???
 @Component
